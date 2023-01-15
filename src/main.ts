@@ -4,8 +4,6 @@ import { parseToUserCsvDocument } from "./userCsvDocumentParser";
 import { serializeUserCsvDocument } from "./userCsvDocumentSerializer";
 import { filterUsersByDateRange } from "./UserCsvDocument";
 
-const csvFileDir = "/Users/andrewcordiner/Documents/ovice-assessment/data.csv";
-
 export const question1 = (url: string): void => {
   const userCsvDocument = parseToUserCsvDocument(readCsvFile(url));
   const dedupedUsers = dedupeUsers(userCsvDocument.users);
@@ -34,5 +32,4 @@ export const question2 = (url: string, from: Date, to: Date): void => {
   writeToFile(outputUrl, serializeUserCsvDocument(filteredUserCsvDocument));
 };
 
-question1(csvFileDir);
-question2(csvFileDir, new Date("2020-01-01"), new Date("2021-01-01"));
+question1("/Users/andrewcordiner/Documents/ovice-assessment/data.csv");
